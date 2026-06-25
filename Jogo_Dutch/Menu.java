@@ -39,6 +39,25 @@ public class Menu extends JPanel {
 					
 					jogo.start();
 				}
+				
+				
+				
+				
+				if(cliqueX >= botaoX && cliqueX <= botaoX + botaoL &&
+						cliqueY >= botaoY+70 && cliqueY <= botaoY+70 + botaoA) {
+					
+					if (frame != null) {
+						frame.dispose();
+					}
+					
+					Regras regras = new Regras();
+					regras.start();
+
+					
+					
+					}
+				
+				
 			}	
 		});
 	}
@@ -50,6 +69,11 @@ public class Menu extends JPanel {
 		g.setColor(new java.awt.Color(0, 128, 0));
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
+		g.setColor(Color.black);
+		g.setFont(g.getFont().deriveFont(java.awt.Font.BOLD, 40.0f));
+		g.drawString("DUTCH", 175, 100);
+		
+		
 		g.setColor(Color.RED);
 		g.fillRect(botaoX, botaoY, botaoL, botaoA);
 		g.setColor(Color.WHITE);
@@ -57,6 +81,18 @@ public class Menu extends JPanel {
 		g.setFont(g.getFont().deriveFont(18.0f));
 
 		g.drawString("Jogar", botaoX+70, botaoY+30);
+		
+		
+		
+		g.setColor(Color.RED);
+		g.fillRect(botaoX, botaoY+70, botaoL, botaoA);
+		g.setColor(Color.WHITE);
+		g.drawRect(botaoX, botaoY+70, botaoL, botaoA);
+		g.setFont(g.getFont().deriveFont(18.0f));
+
+		g.drawString("Regras", botaoX+65, botaoY+100);
+		
+		
 	}
 	
 	public void createScreen() {

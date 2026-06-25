@@ -116,10 +116,35 @@ public class Jogo extends JPanel  {
 		this.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (estadoAtual == EstadoTurno.FIM_DE_JOGO || estadoAtual == EstadoTurno.EXIBINDO_CORTE) return;
+				
 
 				int cliqueX = e.getX();
 				int cliqueY = e.getY();
+				
+				
+				
+				if(estadoAtual == EstadoTurno.FIM_DE_JOGO){
+					if (cliqueX >= botaoResetX && cliqueX <= botaoResetX + botaoResetL &&
+							cliqueY >= botaoResetY && cliqueY <= botaoResetY + botaoResetA) {
+						System.out.println("teste2");
+						Menu menu = new Menu();
+						
+						menu.setVisible(true);
+						
+						if(frame != null) {
+							
+							frame.dispose();
+						}
+						menu.start();
+
+						
+					}
+					
+					}
+					
+				
+				if (estadoAtual == EstadoTurno.EXIBINDO_CORTE) return;
+
 				
 				int larguraCartaVisual = CARD_WIDTH * SCALE;
 				int alturaCartaVisual = CARD_HEIGHT * SCALE;
@@ -284,23 +309,6 @@ public class Jogo extends JPanel  {
 		
 
 				//--------------------------------------------------------------------------------------------------------------------------------------------------------
-				if (cliqueX >= botaoResetX && cliqueX <= botaoResetX + botaoResetL &&
-						cliqueY >= botaoResetY && cliqueY <= botaoResetY + botaoResetA) {
-					System.out.println("teste2");
-					Menu menu = new Menu();
-					
-					menu.setVisible(true);
-					
-					if(frame != null) {
-						
-						frame.dispose();
-					}
-					menu.start();
-
-					
-				}
-				
-				
 				
 				
 				
@@ -671,6 +679,7 @@ public class Jogo extends JPanel  {
 			g.setColor(Color.RED);
 			g.fillRect(botaoResetX, botaoResetY, botaoResetL, botaoResetA);
 			g.setColor(Color.WHITE);
+			
 			g.drawRect(botaoResetX, botaoResetY, botaoResetL, botaoResetA);
 			g.drawString("Recomecar", botaoResetX+30, botaoResetY+35);
 		}
