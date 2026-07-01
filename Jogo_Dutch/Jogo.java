@@ -1,4 +1,4 @@
-package com.Jogo_Dutch;
+package Jogo_Dutch;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -102,6 +102,7 @@ public class Jogo extends JPanel  {
 	private BufferedImage deckSheet;
 	private BufferedImage cardBack;
 	private Baralho baralho;
+	
 
 	public static void main(String[] args) {
 		Jogo jogo = new Jogo();
@@ -112,6 +113,9 @@ public class Jogo extends JPanel  {
 		maoMaquina = new Mao();
 		maoJogador = new Mao();
 		monteDescarte = new ArrayList<>();
+		Sound.musica_fundo.loop();
+
+
 
 		this.addMouseListener(new MouseAdapter() {
 			@Override
@@ -126,7 +130,6 @@ public class Jogo extends JPanel  {
 				if(estadoAtual == EstadoTurno.FIM_DE_JOGO){
 					if (cliqueX >= botaoResetX && cliqueX <= botaoResetX + botaoResetL &&
 							cliqueY >= botaoResetY && cliqueY <= botaoResetY + botaoResetA) {
-						System.out.println("teste2");
 						Menu menu = new Menu();
 						
 						menu.setVisible(true);
@@ -154,7 +157,7 @@ public class Jogo extends JPanel  {
 						cliqueY >= botaoDutchY && cliqueY <= botaoDutchY + botaoDutchA) {
 						System.out.println("teste");
 						dutchChamado = true;
-						turnosRestantesPosDutch = 2; 
+						turnosRestantesPosDutch = 3; 
 						finalizarTurnoJogador();
 						return;
 					}
@@ -320,8 +323,8 @@ public class Jogo extends JPanel  {
 		this.setPreferredSize(screenSize);
 		    
 		try {
-			deckSheet = ImageIO.read(getClass().getResourceAsStream("/DeckSheet.png"));
-			cardBack = ImageIO.read(getClass().getResourceAsStream("/Flipped.png"));
+			deckSheet = ImageIO.read(getClass().getResourceAsStream("DeckSheet.png"));
+			cardBack = ImageIO.read(getClass().getResourceAsStream("Flipped.png"));
 		} catch (IOException e) {
 			System.out.println("Erro ao carregar imagens.");
 			e.printStackTrace();

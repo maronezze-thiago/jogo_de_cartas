@@ -1,4 +1,4 @@
-package com.Jogo_Dutch;
+package Jogo_Dutch;
 
 public class Carta {
 

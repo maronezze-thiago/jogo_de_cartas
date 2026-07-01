@@ -1,4 +1,4 @@
-package com.Jogo_Dutch;
+package Jogo_Dutch;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -138,7 +138,7 @@ public class Regras extends JPanel{
 		g.drawRect(botaoX, botaoY, botaoL, botaoA);
 		g.setFont(g.getFont().deriveFont(18.0f));
 
-		g.drawString("Mais Regras", botaoX+27, botaoY+30);
+		g.drawString("Mais Regras", botaoX+25, botaoY+30);
 		
 		
 		
